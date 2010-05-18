@@ -1,0 +1,38 @@
+FBAPI: Kohana Facebook API Wrapper
+==================================
+
+FBAPI is a wrapper for Facebook's PHP SDK. 
+
+Warning: Not everything has been tested yet. I'll probably be adding bugfixes over the next couple weeks.
+
+
+
+Example:
+========
+
+	$fbapi = FBAPI::instance();
+	$session = $fbapi->getSession();
+
+	$me = null;
+	// Session based API call.
+	if ($session)
+	{
+		try
+		{
+			$me = $fbapi->api('/me');
+			echo kohana::debug($me);
+		}
+		catch (FacebookApiException $e)
+		{
+			error_log($e);
+		}
+	}
+
+
+
+License:
+
+fbapi is licensed under the Apache Licence, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
+Except as otherwise noted, the Facebook PHP SDK is licensed under the Apache Licence, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
+
+
